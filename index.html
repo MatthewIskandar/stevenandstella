@@ -848,7 +848,8 @@ document.addEventListener("DOMContentLoaded", () => {
                                               <select id="confirmation" name="confirmation" class="form-select" required>
                                               <option disabled selected value="">Select event to attend</option>
                                               <option value="All">Attend all</option>
-                                              <option value="Both">Attend both</option>
+                                              <option value="Wedding Reception & Afpar">Wedding Reception & Afterparty</option>
+                                              <option value="Holy Matrimony & Wedding Reception">Holy Matrimony & Wedding Reception</option>
                                               <option value="Holy Matrimony">Attend Holy Matrimony only</option>
                                               <option value="Wedding Reception">Attend Wedding Reception only</option>
                                               <option value="Afterparty">Attend Afterparty only</option>
@@ -941,11 +942,16 @@ document.addEventListener("DOMContentLoaded", () => {
                                                   guestsM.required = true;
                                                   guests.required = true;
                                                   guestsA.required = true;
-                                                } else if (value === "Both") {
+                                                } else if (value === "Wedding Reception & Afpar") {
                                                   guestsReceptionWrapper.style.display = "block";
                                                   guestsAfparWrapper.style.display = "block";
                                                   guests.required = true;
                                                   guestsA.required = true;
+                                                } else if (value === "Holy Matrimony & Wedding Reception") {
+                                                  gguestsMatrimonyWrapper.style.display = "block";
+                                                  guestsReceptionWrapper.style.display = "block";
+                                                  guestsM.required = true;
+                                                  guests.required = true;
                                                 } else if (value === "Holy Matrimony") {
                                                   guestsMatrimonyWrapper.style.display = "block";
                                                   guestsM.required = true;
@@ -976,7 +982,14 @@ document.addEventListener("DOMContentLoaded", () => {
                                               } 
                                               else if (path.includes("theeveningaffair")) {
                                                 options.unshift(
-                                                  { text: "Attend both", value: "Both" },
+                                                  { text: "Wedding Reception & Afterparty", value: "Wedding Reception & Afpar" },
+                                                  { text: "Wedding Reception only", value: "Wedding Reception" },
+                                                  { text: "Afterparty only", value: "Afterparty" }
+                                                );
+                                              }
+                                              else if (path.includes("fromdaytonight")) {
+                                                options.unshift(
+                                                  { text: "Holy Matrimony & Wedding Reception", value: "Holy Matrimony & Wedding Reception" },
                                                   { text: "Wedding Reception only", value: "Wedding Reception" },
                                                   { text: "Afterparty only", value: "Afterparty" }
                                                 );
