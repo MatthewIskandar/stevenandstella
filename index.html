@@ -555,7 +555,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         <div class="venue-content">
                             <div class="container">
                                 <div class="row justify-content-center row-venue">
-                                    <div class="col-md-6 col-xl-5 position-relative">
+                                    <div id="section-matrimony" class="col-md-6 col-xl-5 position-relative">
                                         <div class="card">
                                             <div class="card-body">
                                                 <div class="event-name">
@@ -640,7 +640,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-xl-5 position-relative">
+                                    <div id="section-reception" class="col-md-6 col-xl-5 position-relative">
                                         <div class="card">
                                             <div class="card-body">
                                                 <div class="event-name">
@@ -725,7 +725,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-xl-5 position-relative">
+                                    <div id="section-afterparty" class="col-md-6 col-xl-5 position-relative">
                                         <div class="card">
                                             <div class="card-body">
                                                 <div class="event-name">
@@ -1659,4 +1659,44 @@ function showTemporaryFeedback(el, msg, revertText) {
         });
     </script>
 
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const path = window.location.pathname.replace(/^\/+/, "").toLowerCase();
+
+  // Get all 3 sections
+  const sectionMatrimony = document.getElementById("section-matrimony");
+  const sectionReception = document.getElementById("section-reception");
+  const sectionAfterparty = document.getElementById("section-afterparty");
+
+  // Hide all by default
+  sectionMatrimony.style.display = "none";
+  sectionReception.style.display = "none";
+  sectionAfterparty.style.display = "none";
+
+  // Determine which sections to show
+  if (path.includes("thevows")) {
+    sectionMatrimony.style.display = "block";
+  } 
+  else if (path.includes("theeveningaffair")) {
+    sectionReception.style.display = "block";
+    sectionAfterparty.style.display = "block";
+  }
+  else if (path.includes("theevening")) {
+    sectionReception.style.display = "block";
+  } 
+  else if (path.includes("andwedance")) {
+    sectionAfterparty.style.display = "block";
+  } 
+  else if (path.includes("fromdaytonight")) {
+    sectionMatrimony.style.display = "block";
+    sectionReception.style.display = "block";
+  } 
+  else if (path.includes("ourday")) {
+    sectionMatrimony.style.display = "block";
+    sectionReception.style.display = "block";
+    sectionAfterparty.style.display = "block";
+  }
+});
+</script>
 
