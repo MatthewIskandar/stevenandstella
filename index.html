@@ -1,0 +1,1649 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Wedding Invitation of Steven and Stella</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Baskervville&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- styles libraries -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@3.6.8/dist/css/splide.min.css" integrity="sha256-sB1O2oXn5yaSW1T/92q2mGU86IDhZ0j1Ya8eSv+6QfM=" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/magnific-popup.css">
+
+    <!-- styles custom -->
+    <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+
+<body>
+
+<!-- === Background Music === -->
+<audio id="bgMusic" preload="auto" loop>
+  <source src="assets/images/wedding-song.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+<button id="toggleMusic" class="music-btn-1 hidden">🔊</button>
+
+<style>
+.music-btn-1 {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  width: 60px;
+  height: 60px;
+  border: none;
+  border-radius: 50%;
+  background-color: white;
+  color: black;
+  font-size: 24px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: opacity 0.5s ease;
+  opacity: 0;
+  visibility: hidden;
+}
+.music-btn-1.show {
+  opacity: 1;
+  visibility: visible;
+}
+.music-btn-1:hover {
+  background-color: #f0f0f0;
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const bgMusic = document.getElementById("bgMusic");
+  const toggleBtn = document.getElementById("toggleMusic");
+  const openBtn = document.getElementById("btn-envelope");
+
+  let hasStarted = false;
+
+  if (!openBtn) {
+    console.error("❌ Cannot find #btn-envelope — check the ID.");
+    return;
+  }
+
+  // Click "Open Invitation" to start music
+  openBtn.addEventListener("click", async () => {
+    if (hasStarted) return;
+
+    try {
+      await bgMusic.play();
+      hasStarted = true;
+      toggleBtn.classList.add("show"); // ✅ show button
+      console.log("🎵 Music started, button shown");
+    } catch (err) {
+      console.warn("⚠️ Music blocked:", err);
+      toggleBtn.classList.add("show"); // still show button for manual tap
+      alert("Tap 🔊 to enable music");
+    }
+  });
+
+  // Toggle play/pause when button is clicked
+  toggleBtn.addEventListener("click", async () => {
+    if (bgMusic.paused) {
+      try {
+        await bgMusic.play();
+        toggleBtn.textContent = "🔊";
+      } catch (err) {
+        console.warn("⚠️ Play blocked:", err);
+      }
+    } else {
+      bgMusic.pause();
+      toggleBtn.textContent = "🔇";
+    }
+  });
+});
+</script>
+<!-- === End Background Music === -->
+
+
+    <div class="main-app">
+        <!-- Loader -->
+        <div class="loader-wrapper">
+            <img src="./assets/images/spinner.gif" alt="loading" class="spinner">
+            <span>Loading</span>
+        </div>
+        <script>
+            document.onreadystatechange = () => {
+                if (document.readyState !== "complete") {
+                    document.querySelector(".loader-wrapper").style.visibility = "visible";
+                } else {
+                    document.querySelector(".loader-wrapper").style.visibility = "hidden";
+                    runAnimationOrnamentCover();
+                }
+            };
+        </script>
+
+
+
+
+        <!-- progress -->
+        <div class="progress"></div>
+
+        <!-- navbar -->
+       <nav class="navbar navbar-expand-lg navbar-light bg-transparent fixed-top">
+            <div class="container d-flex justify-content-center">
+                <a href="#navbar" class="navbar-brand m-auto p-0">
+                    <img src="./assets/images/logosementara.png" alt="Logo" style="max-height:65px; width:auto; height:auto; object-fit:contain;" />
+                </a>
+            </div>
+        </nav>
+
+        <!-- Envelope Section -->
+        <section class="cover-section">
+            <div class="ornaments-wrapper">
+                <div class="bg-1">
+                    <div class="image-element">
+                        <img src="./assets/images/background-1.png" alt="background-1" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="cover-wrapper">
+                    <div class="cover-content" data-anim="slide-up">
+                        <div class="cover-body">
+                            <div class="cover-description">
+                                <div class="position-relative" data-anim="fade-down">
+                                    <p>We joyfully invite you to  celebrate our wedding</p>
+                                </div>
+                                <h1 class="title" data-anim="zoom-out">Steven & Stella</h1>
+                                <div class="cover-event" data-anim="fade-up">
+                                    <p>Saturday, 13 December 2025</p>
+                                </div>
+                                <div class="elements-widget">
+                                    <button class="btn btn-custom" id="btn-envelope" data-anim="zoom-in">
+                                        <strong>Open Invitation <i class="fas fa-envelope-open-text"></i></strong>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Header section -->
+        <section class="header-section">
+            <div class="ornaments-wrapper">
+                <div class="bg-1">
+                    <div class="image-element" data-anim="slide-up">
+                        <img src="./assets/images/bg-3.png" alt="bg-3" class="img-fluid">
+                    </div>
+                </div>
+                <div class="bg-3">
+                    <div class="image-element" data-anim="slide-right">
+                        <img src="./assets/images/bg-2.png" alt="bg-2-1" class="img-fluid">
+                    </div>
+                </div>
+                <div class="bg-2">
+                    <div class="image-element" data-anim="slide-left">
+                        <img src="./assets/images/bg-2.png" alt="bg-2" class="img-fluid">
+                    </div>
+                </div>
+                <div class="bg-4">
+                    <div class="image-element" data-anim="slide-up">
+                        <img src="./assets/images/bg-1.png" alt="bg-1" class="img-fluid">
+                    </div>
+                </div>
+                <div class="orn-1">
+                    <div class="image-element" data-anim="fade-right">
+                        <img src="./assets/images/tree.png" alt="tree" class="img-fluid animate-loop" data-anim="rotate-left">
+                    </div>
+                </div>
+                <div class="orn-2">
+                    <div class="image-element" data-anim="fade-left">
+                        <img src="./assets/images/tree.png" alt="tree" class="img-fluid animate-loop" data-anim="rotate-right">
+                    </div>
+                </div>
+                <div class="orn-3">
+                    <div class="image-element" data-anim="fade-left">
+                        <img src="./assets/images/tree.png" alt="tree" class="img-fluid animate-loop" data-anim="rotate-right">
+                    </div>
+                </div>
+                <div class="orn-4">
+                    <div class="image-element" data-anim="fade-right">
+                        <img src="./assets/images/tree.png" alt="tree" class="img-fluid animate-loop">
+                    </div>
+                </div>
+                <div class="orn-5">
+                    <div class="image-element" data-anim="fade-right">
+                        <img src="./assets/images/flower-1.png" alt="flower-1" class="img-fluid animate-loop" data-anim="rotate-left">
+                    </div>
+                </div>
+                <div class="orn-6">
+                    <div class="image-element" data-anim="fade-right">
+                        <img src="./assets/images/flower-2.png" alt="flower-2" class="img-fluid animate-loop" data-anim="rotate-left">
+                    </div>
+                </div>
+                <div class="orn-7">
+                    <div class="image-element" data-anim="fade-left">
+                        <img src="./assets/images/tree.png" alt="tree" class="img-fluid animate-loop" data-anim="rotate-left">
+                    </div>
+                </div>
+                <div class="orn-8">
+                    <div class="image-element" data-anim="fade-left">
+                        <img src="./assets/images/tree.png" alt="tree" class="img-fluid">
+                    </div>
+                </div>
+                <div class="orn-9">
+                    <div class="image-element" data-anim="fade-right">
+                        <img src="./assets/images/flower-1.png" alt="flower-1" class="img-fluid animate-loop" data-anim="rotate-left">
+                    </div>
+                </div>
+                <div class="orn-10">
+                    <div class="image-element" data-anim="fade-right">
+                        <img src="./assets/images/flower-2.png" alt="flower-2" class="img-fluid animate-loop" data-anim="rotate-left">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-12">
+                        <div class="header-content">
+                            <div class="header">
+                                <div class="header-title">
+                                    <div class="header-title-content">
+                                        <h1 class="title mb-3" data-anim="fade-down" data-anim-delay="1500">Steven <span>&</span> Stella</h1>
+                                        <div class="position-relative" data-anim="zoom-out" data-anim-delay="1500">
+                                            <p>United in Love & Faith</p>
+                                            <br>
+                                            <p>#STEVoundSTELLA</p>
+                                        </div>
+                                        <div class="scroll-icon">
+                                            <svg data-anim="slide-down" width="28" height="42" viewBox="0 0 28 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <rect opacity="0.6" x="0.5" y="0.5" width="27" height="41" rx="13.5" stroke="#757346" />
+                                                <rect id="scroll-animate" opacity="0.6" x="12" y="6.66699" width="4" height="9.33333" rx="2" fill="#A79E74" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="moveable_section_wrapper position-relative">
+            <!-- Couple section -->
+            <section class="couple-section moveable-section" data-id="1">
+                <div class="reminder-wrap">
+                    <div class="image-wrapper">
+                        <div class="image-element">
+                        <img 
+                            src="./assets/images/background-1.webp" 
+                            alt="couple-background"
+                            style="
+                              width:100%;
+                              height:100%;
+                              object-fit:cover;
+                              object-position:center 75%; /* center vertically */">
+                        </div>
+                    </div>
+                    <div class="reminder-content">
+                        <div class="countdown" date="12/13/2025 18:00:00" data-anim="fade-down">
+                            <div class="days">
+                                <p class="angka">00</p>
+                                <p class="huruf">Day</p>
+                            </div>
+                            <div class="hours">
+                                <p class="angka">00</p>
+                                <p class="huruf">Hours</p>
+                            </div>
+                            <div class="minutes">
+                                <p class="angka">00</p>
+                                <p class="huruf">Mins</p>
+                            </div>
+                            <div class="seconds">
+                                <p class="angka">00</p>
+                                <p class="huruf">Secs</p>
+                            </div>
+                        </div>
+                        <a href="wedding.ics" class="btn btn-custom btn-reminder" data-anim="fade-up">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_2411_134)">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M5 0.625C5 0.45924 4.93415 0.300269 4.81694 0.183058C4.69973 0.065848 4.54076 0 4.375 0C4.20924 0 4.05027 0.065848 3.93306 0.183058C3.81585 0.300269 3.75 0.45924 3.75 0.625V1.25H2.5C1.83696 1.25 1.20107 1.51339 0.732233 1.98223C0.263392 2.45107 0 3.08696 0 3.75L0 17.5C0 18.163 0.263392 18.7989 0.732233 19.2678C1.20107 19.7366 1.83696 20 2.5 20H17.5C18.163 20 18.7989 19.7366 19.2678 19.2678C19.7366 18.7989 20 18.163 20 17.5V3.75C20 3.08696 19.7366 2.45107 19.2678 1.98223C18.7989 1.51339 18.163 1.25 17.5 1.25H16.25V0.625C16.25 0.45924 16.1842 0.300269 16.0669 0.183058C15.9497 0.065848 15.7908 0 15.625 0C15.4592 0 15.3003 0.065848 15.1831 0.183058C15.0658 0.300269 15 0.45924 15 0.625V1.25H5V0.625ZM1.25 17.5V5H18.75V17.5C18.75 17.8315 18.6183 18.1495 18.3839 18.3839C18.1495 18.6183 17.8315 18.75 17.5 18.75H2.5C2.16848 18.75 1.85054 18.6183 1.61612 18.3839C1.3817 18.1495 1.25 17.8315 1.25 17.5ZM10 9.36625C12.08 7.2275 17.2812 10.97 10 15.7812C2.71875 10.9688 7.92 7.2275 10 9.36625Z" fill="#F9FDF9" />
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_2411_134">
+                                        <rect width="20" height="20" fill="white" />
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                            Save the Date
+                        </a>
+                    </div>
+                </div>
+                <div class="couple-wrapper">
+                    <div class="ornaments-wrapper">
+                        <div class="orn-1">
+                            <div class="image-element">
+                                <img src="./assets/images/tree.png" alt="tree" class="img-fluid animate-loop" data-anim="rotate-left">
+                            </div>
+                        </div>
+                        <div class="orn-2">
+                            <div class="image-element">
+                                <img src="./assets/images/tree.png" alt="tree" class="img-fluid animate-loop" data-anim="rotate-right">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="couple-body">
+                        <div class="container position-relative">
+                            <div class="row justify-content-evenly row-couple">
+                                <div class="col-lg-8 col-md-10 col-xl-6 text-center position-relative">
+                                    <div class="couple-content">
+                                        <div class="ornaments-wrapper">
+                                            <div class="bg-1">
+                                                <div class="image-element">
+                                                    <img src="./assets/images/bg-card.png" alt="bg-card" class="img-fluid">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="couple-content-body">
+                                            <div class="title-section" data-anim="fade-down">
+                                                <h2>Genesis 2:18</h2>
+                                            </div>
+                                            <div class="position-relative" data-anim="zoom-out">
+                                                <p>The Lord God said, "It is not good for the man to be alone. I will make a helper suitable for him."</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center position-relative">
+                                <div class="col-md-6 col-xl-5">
+                                    <div class="couple man">
+                                        <div class="ornaments-wrapper">
+                                            <div class="bg-2">
+                                                <div class="image-element">
+                                                    <img src="./assets/images/bg-card-2.png" alt="bg-card-2" class="img-fluid">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="image-wrap man" data-anim="slide-up">
+                                            <div class="image-element">
+                                                <img src="./assets/images/mempelai-1.webp" alt="couple" class="couple-image man">
+                                            </div>
+                                        </div>
+                                        <div class="couple-description">
+                                            <h3 data-anim="fade-down">Steven Budiman</h3>
+                                            <div class="couple-parent" data-anim="zoom-out">
+                                                <p>Second son of <br> Irwan Soebekti and Josephine Budiman</p>
+                                                <br>
+                                            </div>
+                                            <div class="sosmed-wrap">
+                                             <a href="https://www.instagram.com/stvnbdmnn" 
+                                                 class="sosmed" 
+                                                 data-anim="zoom-in" 
+                                                 target="_blank" 
+                                                 rel="noopener noreferrer">
+                                                <small><i class="fab fa-instagram"></i></small>
+                                              </a>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="and"><span>&</span></div>
+                                <div class="col-md-6 col-xl-5">
+                                    <div class="couple women">
+                                        <div class="ornaments-wrapper">
+                                            <div class="bg-2">
+                                                <div class="image-element">
+                                                    <img src="./assets/images/bg-card-2.png" alt="bg-card-2" class="img-fluid">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="image-wrap woman" data-anim="slide-up">
+                                            <div class="image-element">
+                                                <img src="./assets/images/mempelai-2.webp" alt="couple" class="couple-image women">
+                                            </div>
+                                        </div>
+                                        <div class="couple-description">
+                                            <h3 data-anim="fade-down">Stella Mary</h3>
+                                            <div class="couple-parent" data-anim="zoom-out">
+                                                <p>First daughter of <br> Anderson Everhardt and Vella Martha</p>
+                                                <br>
+                                            </div>
+                                            <div class="sosmed-wrap">
+                                              <a href="https://www.instagram.com/stellaamary" 
+                                                 class="sosmed" 
+                                                 data-anim="zoom-in" 
+                                                 target="_blank" 
+                                                 rel="noopener noreferrer">
+                                                <small><i class="fab fa-instagram"></i></small>
+                                              </a>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Story section -->
+            <section class="story-section moveable-section" data-id="2">
+                <div class="story">
+                    <div class="ornaments-wrapper">
+                        <div class="bg-2">
+                            <div class="image-element" data-anim="slide-right">
+                                <img src="./assets/images/bg-2.png" alt="bg-2" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="bg-3">
+                            <div class="image-element" data-anim="slide-left">
+                                <img src="./assets/images/bg-2.png" alt="bg-2" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="bg-4">
+                            <div class="image-element" data-anim="slide-up">
+                                <img src="./assets/images/bg-1.png" alt="bg-1" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="orn-1">
+                            <div class="image-element" data-anim="fade-right">
+                                <img src="./assets/images/tree.png" alt="tree" class="img-fluid animate-loop" data-anim="rotate-left">
+                            </div>
+                        </div>
+                        <div class="orn-2">
+                            <div class="image-element" data-anim="fade-left">
+                                <img src="./assets/images/tree.png" alt="tree" class="img-fluid animate-loop" data-anim="rotate-left">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container position-relative">
+                        <div class="row justify-content-center">
+                            <div class="col-md-10 col-lg-8">
+                                <div class="story-content">
+                                    <div class="col-12 col-md-11 col-lg-10 mx-auto">
+                                        <div class="story-description">
+                                            <div class="title-section" data-anim="fade-down">
+                                                <h7>In God’s</h7>
+                                                <h2>Perfect Time</h2>
+                                            </div>
+                                            <div class="row justify-content-center my-4">
+                                                <div class="col-6 col-md-5 text-center">
+                                                    <img src="./assets/images/steven-baby.jpg" alt="Steven" class="img-fluid rounded mb-2">
+                                                    <h3>Steven</h3>
+                                                </div>
+                                                <div class="col-6 col-md-5 text-center">
+                                                    <img src="./assets/images/stella-baby.jpg" alt="Stella" class="img-fluid rounded mb-2">
+                                                    <h3>Stella</h3>
+                                                </div>
+                                            </div>
+                                            <div class="position-relative" data-anim="zoom-out" style="text-align: justify;">
+                                                <p>God’s timing is always perfect. He brought us together not by chance, but by His plan. From friendship to love, from love to a lifelong promise.</p>
+                                                <br>
+                                                <p>At Disney Sea Japan, amidst the magic and joy, we marked the beginning of our journey together. We are grateful to step into this covenant of marriage with Him at the center.</p>
+                                                <br>
+                                                <p>"Two are better than one, for they have a good return for their labor."</p>
+                                                <br>
+                                            </div>
+                                            <div class="position-relative" data-anim="zoom-out" style="text-align: center;">
+                                                <p>Ecclesiastes 4:9</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <div class="three-photo-row"style="position: relative; z-index: 10;">
+                        <img src="./assets/images/proposal.jpg" alt="proposal" class="img-fluid">
+                    </div>
+                </div>
+            </section>
+
+            <section class="moveable-section" data-id="4">
+                <!-- Vanue & Event section -->
+                <section class="venue-section">
+                    <div class="ornaments-wrapper">
+                        <div class="orn-1">
+                            <div class="image-element">
+                                <img src="./assets/images/tree.png" alt="tree" class="img-fluid animate-loop" data-anim="rotate-left">
+                            </div>
+                        </div>
+                        <div class="orn-2">
+                            <div class="image-element">
+                                <img src="./assets/images/flower-2.png" alt="flower-2" class="img-fluid animate-loop" data-anim="rotate-right">
+                            </div>
+                        </div>
+                        <div class="orn-3">
+                            <div class="image-element">
+                                <img src="./assets/images/tree.png" alt="tree" class="img-fluid animate-loop" data-anim="rotate-left">
+                            </div>
+                        </div>
+                        <div class="orn-4">
+                            <div class="image-element">
+                                <img src="./assets/images/flower-2.png" alt="flower-2" class="img-fluid animate-loop" data-anim="rotate-left" data-anim-duration="4500ms">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="venue-wrapper">
+                        <div class="container position-relative">
+                            <div class="row justify-content-center">
+                                <div class="col-md-8 col-xl-6 position-relative">
+                                    <div class="venue-description">
+                                        <div class="title-section" data-anim="fade-down">
+                                            <h2>Event & Venue</h2>
+                                        </div>
+                                        <div class="position-relative" data-anim="zoom-out">
+                                            <p>We would love to celebrate with you!</p>
+                                            <p>Please let us know by filling out the form below</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="venue-content">
+                            <div class="container">
+                                <div class="row justify-content-center row-venue">
+                                    <div class="col-md-6 col-xl-5 position-relative">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="event-name">
+                                                    <div class="ornaments-wrapper">
+                                                        <div class="bg-1">
+                                                            <div class="image-element">
+                                                                <img src="./assets/images/Holmat.png" alt="Holmat">
+                                                            </div>
+                                                            <div class="overlay-elements-gradient overlay-top"></div>
+                                                        </div>
+                                                    </div>
+                                                    <h4>  </h4>
+                                                    <h4 data-anim="fade-down">Holy Matrimony</h4>
+                                                    <div class="event-name-body" data-anim="zoom-out">
+                                                        <br>
+                                                        <br>
+                                                        <p>Saturday</p>
+                                                        <div class="date">
+                                                            <h5>13/12/2025</h5>
+                                                        </div>
+                                                        <p>10.00 - 12.00 WIB</p>
+                                                    </div>
+                                                </div>
+                                                <div class="event-place">
+                                                    <div class="orn-5">
+                                                        <div class="image-element">
+                                                            <img src="./assets/images/flower-1.png" alt="flower-1" class="img-fluid animate-loop" data-anim="rotate-left">
+                                                        </div>
+                                                    </div>
+                                                    <div class="orn-6">
+                                                        <div class="image-element">
+                                                            <img src="./assets/images/flower-1.png" alt="flower-1" class="img-fluid animate-loop" data-anim="rotate-right">
+                                                        </div>
+                                                    </div>
+                                                    <div class="event-place-body overflow-hidden">
+                                                        <div class="bg-2">
+                                                            <div class="image-element">
+                                                                <img src="./assets/images/bg-card.png" alt="bg-card" class="img-fluid">
+                                                            </div>
+                                                        </div>
+                                                        <div class="event-place-content" data-anim="zoom-out">
+                                                            <div class="ribbon-venue" data-animationloop="keyframe">
+                                                                <div data-anim="zoom-in">
+                                                                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 560 560" style="enable-background:new 0 0 560 560;overflow: visible;" xml:space="preserve">
+                                                                        <g id="Layer_1">
+                                                                        </g>
+                                                                        <g id="Layer_3">
+                                                                            <g>
+                                                                                <g>
+                                                                                    <path class="st0" d="M273.3,48.3c34.1,0,66.1,13.3,90.3,37.4c24.1,24.1,37.4,56.2,37.4,90.3c0,93.4-63.7,165.3-105.8,212.8c-4.4,4.9-8.5,9.6-12.3,14c-2.9,3.4-6.3,5.2-9.5,5.2c-4.1,0-7.4-2.8-9.4-5.2c-4.6-5.3-9.4-10.7-14.5-16.5c-20.4-23-43.5-49.1-63-80c-22.1-35-34.9-69.1-39.2-104.3c-4.8-39.7,6.8-79.6,31.9-109.4c22.5-26.7,53.5-42.4,87.3-44.2C268.7,48.4,271.1,48.3,273.3,48.3 M273.3,29.3c-2.6,0-5.2,0.1-7.8,0.2c-87.5,4.6-147.7,87.9-137.1,174.9c11.7,96.3,80.1,163.3,121.1,210.8c6.8,7.8,15.3,11.8,23.8,11.8c8.6,0,17.1-3.9,23.9-11.8C338.4,367.6,420,286.7,420,176C420,95,354.3,29.3,273.3,29.3L273.3,29.3z" />
+                                                                                </g>
+                                                                                <g>
+                                                                                    <path class="st0" d="M275.1,118c30.6,0,55.5,24.9,55.5,55.5S305.7,229,275.1,229s-55.5-24.9-55.5-55.5S244.5,118,275.1,118 M275.1,99c-41.1,0-74.5,33.3-74.5,74.5S234,248,275.1,248s74.5-33.3,74.5-74.5S316.2,99,275.1,99L275.1,99z" />
+                                                                                </g>
+                                                                            </g>
+                                                                        </g>
+                                                                        <g id="Layer_2">
+                                                                            </image>
+                                                                            <ellipse class="st1" cx="272.8" cy="437.9" rx="146.4" ry="40.9" />
+                                                                            <ellipse class="st0 dot" cx="273.6" cy="437.9" rx="63.1" ry="17" />
+                                                                        </g>
+                                                                    </svg>
+                                                                </div>
+                                                            </div>
+                                                            <h4>Chapel of the Ursuline Convent of Santa Maria</h4>
+                                                            <p>Jl. Ir. H. Juanda No.29, RT.1/RW.3, Kb. Klp., Kecamatan Gambir, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10120</p>
+                                                            <!-- Dress Code Section -->
+                                                            <div class="dress-code" data-anim="fade-up">
+                                                                <h4>Dress Code</h4>
+                                                                <p>Elegant Formal</p>
+                                                                    <div class="dresscode-photo">
+                                                                        <img src="./assets/images/elegant-formal.png" alt="elegant-formal">
+                                                                    </div>
+                                                                <p>We kindly request no batik attire</p>
+                                                            </div>
+                                                            <div class="widget-elements">
+                                                                <a class="btn btn-custom mt-3" aria-label="button maps" href="#" data-bs-toggle="modal" data-bs-target="#event1">See Location</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-xl-5 position-relative">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="event-name">
+                                                    <div class="ornaments-wrapper">
+                                                        <div class="bg-1">
+                                                            <div class="image-element">
+                                                                <img src="./assets/images/Reception.png" alt="Reception">
+                                                            </div>
+                                                            <div class="overlay-elements-gradient overlay-top"></div>
+                                                        </div>
+                                                    </div>
+                                                    <h4>  </h4>
+                                                    <h4 data-anim="fade-down">Wedding Reception</h4>
+                                                    <div class="event-name-body" data-anim="zoom-out">
+                                                        <br>
+                                                        <br>
+                                                        <p>Saturday</p>
+                                                        <div class="date">
+                                                            <h5>13/12/2025</h5>
+                                                        </div>
+                                                        <p>18.00 - 21.00 WIB</p>
+                                                    </div>
+                                                </div>
+                                                <div class="event-place">
+                                                    <div class="orn-5">
+                                                        <div class="image-element">
+                                                            <img src="./assets/images/flower-1.png" alt="flower-1" class="img-fluid animate-loop" data-anim="rotate-left">
+                                                        </div>
+                                                    </div>
+                                                    <div class="orn-6">
+                                                        <div class="image-element">
+                                                            <img src="./assets/images/flower-1.png" alt="flower-1" class="img-fluid animate-loop" data-anim="rotate-right">
+                                                        </div>
+                                                    </div>
+                                                    <div class="event-place-body overflow-hidden">
+                                                        <div class="bg-2">
+                                                            <div class="image-element">
+                                                                <img src="./assets/images/bg-card.png" alt="bg-card" class="img-fluid">
+                                                            </div>
+                                                        </div>
+                                                        <div class="event-place-content" data-anim="zoom-out">
+                                                            <div class="ribbon-venue" data-animationloop="keyframe">
+                                                                <div data-anim="zoom-in">
+                                                                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 560 560" style="enable-background:new 0 0 560 560;overflow: visible;" xml:space="preserve">
+                                                                        <g id="Layer_1">
+                                                                        </g>
+                                                                        <g id="Layer_3">
+                                                                            <g>
+                                                                                <g>
+                                                                                    <path class="st0" d="M273.3,48.3c34.1,0,66.1,13.3,90.3,37.4c24.1,24.1,37.4,56.2,37.4,90.3c0,93.4-63.7,165.3-105.8,212.8c-4.4,4.9-8.5,9.6-12.3,14c-2.9,3.4-6.3,5.2-9.5,5.2c-4.1,0-7.4-2.8-9.4-5.2c-4.6-5.3-9.4-10.7-14.5-16.5c-20.4-23-43.5-49.1-63-80c-22.1-35-34.9-69.1-39.2-104.3c-4.8-39.7,6.8-79.6,31.9-109.4c22.5-26.7,53.5-42.4,87.3-44.2C268.7,48.4,271.1,48.3,273.3,48.3 M273.3,29.3c-2.6,0-5.2,0.1-7.8,0.2c-87.5,4.6-147.7,87.9-137.1,174.9c11.7,96.3,80.1,163.3,121.1,210.8c6.8,7.8,15.3,11.8,23.8,11.8c8.6,0,17.1-3.9,23.9-11.8C338.4,367.6,420,286.7,420,176C420,95,354.3,29.3,273.3,29.3L273.3,29.3z" />
+                                                                                </g>
+                                                                                <g>
+                                                                                    <path class="st0" d="M275.1,118c30.6,0,55.5,24.9,55.5,55.5S305.7,229,275.1,229s-55.5-24.9-55.5-55.5S244.5,118,275.1,118 M275.1,99c-41.1,0-74.5,33.3-74.5,74.5S234,248,275.1,248s74.5-33.3,74.5-74.5S316.2,99,275.1,99L275.1,99z" />
+                                                                                </g>
+                                                                            </g>
+                                                                        </g>
+                                                                        <g id="Layer_2">
+                                                                            </image>
+                                                                            <ellipse class="st1" cx="272.8" cy="437.9" rx="146.4" ry="40.9" />
+                                                                            <ellipse class="st0 dot" cx="273.6" cy="437.9" rx="63.1" ry="17" />
+                                                                        </g>
+                                                                    </svg>
+                                                                </div>
+                                                            </div>
+                                                            <h4>Hotel Borobudur Jakarta (Backyard Garden)</h4>
+                                                            <p>Jl. Lap. Banteng Selatan No.1, Ps. Baru, Kecamatan Sawah Besar, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10710</p>
+                                                            <!-- Dress Code Section -->
+                                                            <div class="dress-code" data-anim="fade-up">
+                                                                <h4>Dress Code</h4>
+                                                                <p>Elegant in Black</p>
+                                                                    <div class="dresscode-photo">
+                                                                        <img src="./assets/images/formal-black.png" alt="formal-black">
+                                                                    </div>
+                                                                <p>Elegance in black, with comfort in mind as it’s a garden party</p>
+                                                            </div>
+                                                            <div class="widget-elements">
+                                                                <a class="btn btn-custom mt-3" aria-label="button maps" href="#" data-bs-toggle="modal" data-bs-target="#event2">See Location</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-xl-5 position-relative">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="event-name">
+                                                    <div class="ornaments-wrapper">
+                                                        <div class="bg-1">
+                                                            <div class="image-element">
+                                                                <img src="./assets/images/Afterparty2.png" alt="Afterparty">
+                                                            </div>
+                                                            <div class="overlay-elements-gradient overlay-top"></div>
+                                                        </div>
+                                                    </div>
+                                                    <h4><br></h4>
+                                                    <h4 data-anim="fade-down"><strong>After Party</strong></h4>
+                                                    <div class="event-name-body" data-anim="zoom-out">                                                        
+                                                        <br>
+                                                        <p>Saturday</p>
+                                                        <br>
+                                                        <br>
+                                                        <br>
+                                                        <br>
+                                                        <div class="date">
+                                                            <h5>13/12/2025</h5>
+                                                        </div>
+                                                        <p>21.00 - till drop</p>
+                                                    </div>
+                                                </div>
+                                                <div class="event-place">
+                                                    <div class="orn-5">
+                                                        <div class="image-element">
+                                                            <img src="./assets/images/flower-1.png" alt="flower-1" class="img-fluid animate-loop" data-anim="rotate-left">
+                                                        </div>
+                                                    </div>
+                                                    <div class="orn-6">
+                                                        <div class="image-element">
+                                                            <img src="./assets/images/flower-1.png" alt="flower-1" class="img-fluid animate-loop" data-anim="rotate-right">
+                                                        </div>
+                                                    </div>
+                                                    <div class="event-place-body overflow-hidden">
+                                                        <div class="bg-2">
+                                                            <div class="image-element">
+                                                                <img src="./assets/images/bg-card.png" alt="bg-card" class="img-fluid">
+                                                            </div>
+                                                        </div>
+                                                        <div class="event-place-content" data-anim="zoom-out">
+                                                            <div class="ribbon-venue" data-animationloop="keyframe">
+                                                                <div data-anim="zoom-in">
+                                                                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 560 560" style="enable-background:new 0 0 560 560;overflow: visible;" xml:space="preserve">
+                                                                        <g id="Layer_1">
+                                                                        </g>
+                                                                        <g id="Layer_3">
+                                                                            <g>
+                                                                                <g>
+                                                                                    <path class="st0" d="M273.3,48.3c34.1,0,66.1,13.3,90.3,37.4c24.1,24.1,37.4,56.2,37.4,90.3c0,93.4-63.7,165.3-105.8,212.8c-4.4,4.9-8.5,9.6-12.3,14c-2.9,3.4-6.3,5.2-9.5,5.2c-4.1,0-7.4-2.8-9.4-5.2c-4.6-5.3-9.4-10.7-14.5-16.5c-20.4-23-43.5-49.1-63-80c-22.1-35-34.9-69.1-39.2-104.3c-4.8-39.7,6.8-79.6,31.9-109.4c22.5-26.7,53.5-42.4,87.3-44.2C268.7,48.4,271.1,48.3,273.3,48.3 M273.3,29.3c-2.6,0-5.2,0.1-7.8,0.2c-87.5,4.6-147.7,87.9-137.1,174.9c11.7,96.3,80.1,163.3,121.1,210.8c6.8,7.8,15.3,11.8,23.8,11.8c8.6,0,17.1-3.9,23.9-11.8C338.4,367.6,420,286.7,420,176C420,95,354.3,29.3,273.3,29.3L273.3,29.3z" />
+                                                                                </g>
+                                                                                <g>
+                                                                                    <path class="st0" d="M275.1,118c30.6,0,55.5,24.9,55.5,55.5S305.7,229,275.1,229s-55.5-24.9-55.5-55.5S244.5,118,275.1,118 M275.1,99c-41.1,0-74.5,33.3-74.5,74.5S234,248,275.1,248s74.5-33.3,74.5-74.5S316.2,99,275.1,99L275.1,99z" />
+                                                                                </g>
+                                                                            </g>
+                                                                        </g>
+                                                                        <g id="Layer_2">
+                                                                            </image>
+                                                                            <ellipse class="st1" cx="272.8" cy="437.9" rx="146.4" ry="40.9" />
+                                                                            <ellipse class="st0 dot" cx="273.6" cy="437.9" rx="63.1" ry="17" />
+                                                                        </g>
+                                                                    </svg>
+                                                                </div>
+                                                            </div>
+                                                            <h4>Grand Manhattan Club</h4>
+                                                            <p>East Wing Hotel Borobudur Jakarta Jl. Lap. Banteng Selatan No.1, Ps. Baru, Kecamatan Sawah Besar, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10710</p>
+                                                            <div class="widget-elements">
+                                                                <a class="btn btn-custom mt-3" aria-label="button maps" href="#" data-bs-toggle="modal" data-bs-target="#event3">See Location</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- rsvp section -->
+                <section class="rsvp-section">
+                    <div class="ornaments-wrapper overflow-hidden">
+                        <div class="bg-1">
+                            <div class="image-element">
+                                <img src="./assets/images/bg-1(1).png" alt="bg-1" class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container position-relative">
+                        <div class="row justify-content-center">
+                            <div class="col-md-8 col-lg-6 col-xl-5 position-relative">
+                                <div class="rsvp-wrapper">
+                                    <div class="rsvp-form">
+                                        <div class="title-section" data-anim="fade-down">
+                                            <h2>RSVP</h2>
+                                        </div>
+                                        <div class="image-element">
+                                            <img src="./assets/images/RSVP.png" alt="RSVP" class="img-fluid">
+                                        </div>
+                                        </div>
+                                        <div class="rsvp-overlay-box">
+                                            <form id="rsvpForm" data-anim="fade">
+                                          <div class="input-group mb-3">
+                                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                            <input type="text" id="name" name="name" class="form-control" placeholder="Name" required>
+                                          </div>
+
+                                          <div class="input-group mb-3">
+                                            <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                                            <input type="tel" id="phone" name="phone" class="form-control" placeholder="Phone Number" inputmode="numeric" pattern="[0-9]*"
+                                              oninput="this.value = this.value.replace(/[^0-9]/g, '');" required>
+                                          </div>
+                                        
+                                                <div class="mb-3">
+                                                    <label for="confirmation" class="form-label" style="color: black">Confirmation of Attendance</label>
+                                              <select id="confirmation" name="confirmation" class="form-select" required>
+                                              <option disabled selected value="">Select event to attend</option>
+                                              <option value="All">Attend all</option>
+                                              <option value="Both">Attend both</option>
+                                              <option value="Holy Matrimony">Attend Holy Matrimony only</option>
+                                              <option value="Wedding Reception">Attend Wedding Reception only</option>
+                                              <option value="Afterparty">Attend Afterparty only</option>
+                                              <option value="Unable to attend">Unable to attend</option>
+                                            </select>
+
+                                            <div id="guestsMatrimonyWrapper" class="mb-3" style="display: none;">
+                                              <label for="guestsM" class="form-label" style="color: black">The number of guests for Holy Matrimony</label>
+                                              <select id="guestsM" name="guestsM" class="form-select">
+                                                <option disabled selected value="">Select guests</option>
+                                              </select>
+                                            </div>
+
+                                            <div id="guestsReceptionWrapper" class="mb-3" style="display: none;">
+                                              <label for="guests" class="form-label" style="color: black">The number of guests for Wedding Reception</label>
+                                              <select id="guests" name="guests" class="form-select">
+                                                <option disabled selected value="">Select guests</option>
+                                              </select>
+                                            </div>
+
+                                            <div id="guestsAfparWrapper" class="mb-3" style="display: none;">
+                                              <label for="guestsA" class="form-label" style="color: black">The number of guests for Afterparty</label>
+                                              <select id="guestsA" name="guestsA" class="form-select">
+                                                <option disabled selected value="">Select guests</option>
+                                              </select>
+                                            </div>
+
+                                            <script>
+                                            document.addEventListener("DOMContentLoaded", function () {
+                                              const confirmationSelect = document.getElementById("confirmation");
+                                              const guestsMatrimonyWrapper = document.getElementById("guestsMatrimonyWrapper");
+                                              const guestsReceptionWrapper = document.getElementById("guestsReceptionWrapper");
+                                              const guestsAfparWrapper = document.getElementById("guestsAfparWrapper");
+
+                                              const guestsM = document.getElementById("guestsM");
+                                              const guests = document.getElementById("guests");
+                                              const guestsA = document.getElementById("guestsA");
+
+                                              // Detect type from URL
+                                              let path = window.location.pathname.replace(/^\/+/, "");
+                                              let guestName = path ? path.replace(/-/g, " ").toLowerCase() : "guest";
+
+                                              
+                                              if (!path) {
+                                                  console.log("No guest name in URL, defaulting to generic mode.");
+                                                }
+
+
+                                              let maxGuests = 2; // default
+
+                                              if (guestName.includes("and family")) {
+                                                maxGuests = 2;
+                                              } else if (guestName.includes("and partner")) {
+                                                maxGuests = 2;
+                                              }
+
+                                              // Helper to build dropdown options dynamically
+                                              function populateOptions(select, max) {
+                                                select.innerHTML = '<option disabled selected value="">Select guests</option>';
+                                                for (let i = 1; i <= max; i++) {
+                                                  const opt = document.createElement("option");
+                                                  opt.value = i;
+                                                  opt.textContent = i;
+                                                  select.appendChild(opt);
+                                                }
+                                              }
+
+                                              // Initially populate all guest dropdowns
+                                              populateOptions(guestsM, maxGuests);
+                                              populateOptions(guests, maxGuests);
+                                              populateOptions(guestsA, maxGuests);
+
+                                              // Toggle visibility based on confirmation
+                                              confirmationSelect.addEventListener("change", function () {
+                                                const value = this.value;
+
+                                                // Hide everything first
+                                                guestsMatrimonyWrapper.style.display = "none";
+                                                guestsReceptionWrapper.style.display = "none";
+                                                guestsAfparWrapper.style.display = "none";
+
+                                                guestsM.required = false;
+                                                guests.required = false;
+                                                guestsA.required = false;
+
+                                                if (value === "All") {
+                                                  guestsMatrimonyWrapper.style.display = "block";
+                                                  guestsReceptionWrapper.style.display = "block";
+                                                  guestsAfparWrapper.style.display = "block";
+                                                  guestsM.required = true;
+                                                  guests.required = true;
+                                                  guestsA.required = true;
+                                                } else if (value === "Both") {
+                                                  guestsReceptionWrapper.style.display = "block";
+                                                  guestsAfparWrapper.style.display = "block";
+                                                  guests.required = true;
+                                                  guestsA.required = true;
+                                                } else if (value === "Holy Matrimony") {
+                                                  guestsMatrimonyWrapper.style.display = "block";
+                                                  guestsM.required = true;
+                                                } else if (value === "Wedding Reception") {
+                                                  guestsReceptionWrapper.style.display = "block";
+                                                  guests.required = true;
+                                                } else if (value === "Afterparty") {
+                                                  guestsAfparWrapper.style.display = "block";
+                                                  guestsA.required = true;
+                                               } 
+                                                // "Unable to attend" → nothing shows
+                                              });
+                                            });
+                                            </script>
+
+                                            <script>
+                                            document.addEventListener("DOMContentLoaded", function () {
+                                              const confirmationSelect = document.getElementById("confirmation");
+                                              const path = window.location.pathname.replace(/^\/+/, "").toLowerCase();
+
+                                              const options = [
+                                                { text: "Unable to attend", value: "Unable to attend" }
+                                              ];
+
+                                              // ✅ Put theeveningaffair BEFORE theevening
+                                              if (path.includes("thevows")) {
+                                                options.unshift({ text: "Holy Matrimony only", value: "Holy Matrimony" });
+                                              } 
+                                              else if (path.includes("theeveningaffair")) {
+                                                options.unshift(
+                                                  { text: "Attend both", value: "Both" },
+                                                  { text: "Wedding Reception only", value: "Wedding Reception" },
+                                                  { text: "Afterparty only", value: "Afterparty" }
+                                                );
+                                              }
+                                              else if (path.includes("theevening")) {
+                                                options.unshift({ text: "Wedding Reception only", value: "Wedding Reception" });
+                                              } 
+                                              else if (path.includes("andwedance")) {
+                                                options.unshift({ text: "Afterparty only", value: "Afterparty" });
+                                              } 
+                                              else if (path.includes("ourday")) {
+                                                options.unshift(
+                                                  { text: "Attend all", value: "All" },
+                                                  { text: "Holy Matrimony only", value: "Holy Matrimony" },
+                                                  { text: "Wedding Reception only", value: "Wedding Reception" },
+                                                  { text: "Afterparty only", value: "Afterparty" }
+                                                );
+                                              }
+
+                                              // Build the dropdown dynamically
+                                              confirmationSelect.innerHTML = '<option disabled selected value="">Select event to attend</option>';
+                                              options.forEach(opt => {
+                                                const optionEl = document.createElement("option");
+                                                optionEl.value = opt.value;
+                                                optionEl.textContent = opt.text;
+                                                confirmationSelect.appendChild(optionEl);
+                                              });
+                                            });
+                                            </script>
+
+
+                                          </div>
+                                          <button class="btn btn-custom w-100" type="submit">Send</button>
+                                        
+                                                <br>
+                                                <p style="color: rgba(255, 255, 255, 0.693); text-align: center">--------------------🤍--------------------</p>
+                                                <h4 style="color: black; text-align: center"><em>With respect …</em></h4>
+                                                <p style="color: black; margin-top: 1rem; text-align: justify">In order for all guests to relax and  enjoy the evening, we respectfully request an <strong><em>adults only</em></strong> celebration.</p>
+                                                <p style="color: black; margin-bottom: 0rem; margin-top: 1rem; style=text-align: justify;">And as this will be a seated dinner,</p>
+                                                <p style="color: black;style=text-align: justify;">please RSVP <strong><em>according to the number of guests</em></strong> indicated in your invitation.</p>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+                      document.addEventListener("DOMContentLoaded", function () {
+                        const form = document.getElementById("rsvpForm");
+                        form.addEventListener("submit", function (e) {
+                          e.preventDefault();  // Stop actual submission
+                          form.reset();        // Clear the form fields
+                        });
+                      });
+                    </script>
+                </section>
+            </section>
+
+
+
+            <!-- Wishes section -->
+            <section class="wishes-section moveable-section" data-id="6">
+                <div class="wishes-form-wrapper">
+                    <div class="ornaments-wrapper">
+                        <div class="bg-1">
+                            <div class="image-element" data-anim="slide-up">
+                                <img src="./assets/images/bg-2.png" alt="bg-2" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="orn-1">
+                            <div class="image-element">
+                                <img src="./assets/images/flower-2.png" alt="flower-2" class="img-fluid animate-loop" data-anim="rotate-left">
+                            </div>
+                        </div>
+                        <div class="orn-2">
+                            <div class="image-element">
+                                <img src="./assets/images/flower-1.png" alt="flower-1" class="img-fluid animate-loop" data-anim="rotate-right">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container position-relative">
+                        <div class="row justify-content-center align-items-center flex-column">
+                            <div class="col-md-8 col-lg-6 position-relative">
+                                <div class="card card-form">
+                                    <div class="card-body">
+                                        <div class="image-element">
+                                            <img src="./assets/images/background-3.png" alt="background-3" class="img-fluid">
+                                        </div>
+                                        <br>
+                                        <!-- REPLACE the old form with this -->
+                                        <form id="wishesForm" class="text-center" data-anim="fade-up">
+                                          <div class="input-group mb-3">
+                                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                            <input type="text" id="wishName" class="form-control" placeholder="Name" required>
+                                          </div>
+                                          <div class="input-group mb-3">
+                                            <span class="input-group-text textarea"><i class="fas fa-pen"></i></span>
+                                            <textarea id="wishText" rows="5" class="form-control" placeholder="Write your wishes" required></textarea>
+                                          </div>
+                                          <button id="wishSend" type="submit" class="btn btn-custom m-auto w-100">Send</button>
+                                        </form>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="wishes-preview">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-md-8 col-lg-6">
+                                <div class="card">
+                                    <div class="card-body text-left">
+                                        <div class="wishes" data-anim="slide-up">                                            
+                                            <div class="wish">
+                                                <div class="wish-badge">
+                                                    <h6>D</h6>
+                                                </div>
+                                                <div class="wish-description">
+                                                    <script>
+document.addEventListener("DOMContentLoaded", () => {
+  // ✅ your deployed Google Apps Script Web App URL
+  const WEBAPP_URL =
+    "https://script.google.com/macros/s/AKfycbwv-CAQqzHNimMaQcNgtHcJdUyI2elgT5xzCg3Hc18BneZRVj1Qhn_60SnhLZBmRg01IQ/exec";
+
+  const wishesContainer = document.querySelector(".wishes");
+
+  // Helper to escape text safely
+  const escapeHtml = (text) =>
+    String(text || "")
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+
+  // Render a single wish card
+  const renderWish = (name, message) => {
+    const initial = escapeHtml(name.charAt(0).toUpperCase());
+    return `
+      <div class="wish">
+        <div class="wish-badge"><h6>${initial}</h6></div>
+        <div class="wish-description">
+          <h6>${escapeHtml(name)}</h6>
+          <p>${escapeHtml(message)}</p>
+        </div>
+      </div>
+    `;
+  };
+
+  // Fetch and display all wishes
+  async function loadWishes() {
+    try {
+      const res = await fetch(WEBAPP_URL + "?t=" + Date.now()); // avoid cache
+      if (!res.ok) throw new Error("Network error");
+      const data = await res.json();
+
+      // Reverse for newest first
+      const list = Array.isArray(data) ? data.reverse() : [];
+
+      // Clear current list
+      wishesContainer.innerHTML = "";
+
+      // Insert new wishes
+      list.forEach((item) => {
+        const name = item.name || "Anonymous";
+        const message = item.wish || "";
+        wishesContainer.insertAdjacentHTML("beforeend", renderWish(name, message));
+      });
+    } catch (err) {
+      console.error("❌ Failed to load wishes:", err);
+    }
+  }
+
+  // Load immediately on page open
+  loadWishes();
+
+  // Auto-refresh every 3 seconds
+  setInterval(loadWishes, 3000);
+});
+</script>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            
+            <!-- Egift section -->
+            <section class="egift-section moveable-section" data-id="5">
+                <div class="ornaments-wrapper overflow-hidden">
+                    <div class="bg-1">
+                        <div class="image-element">
+                            <img src="./assets/images/bg-1.png" alt="bg-1" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+                <div class="ornaments-wrapper">
+                    <div class="orn-1">
+                        <div class="image-element">
+                            <img src="./assets/images/flower-1.png" alt="flower-1" class="img-fluid animate-loop" data-anim="rotate-left">
+                        </div>
+                    </div>
+                    <div class="orn-2">
+                        <div class="image-element">
+                            <img src="./assets/images/flower-1.png" alt="flower-1" class="img-fluid animate-loop" data-anim="rotate-left">
+                        </div>
+                    </div>
+                </div>
+                <div class="container position-relative">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8 text-center position-relative">
+                            <div class="gift-wrap">
+                                <div class=" title-section" data-anim="fade-left">
+                                    <h2>E-Gift</h2>
+                                    <p class="my-3" data-anim="zoom-out" style="font-size:0.875rem; line-height:1.5;">
+                                        Your prayers and blessings are the greatest gifts we could ever ask for. Should you wish to share your love in another way, we will gratefully receive it with joy.
+                                    </p>
+                                </div>
+                                 <div class="row justify-content-evenly">
+                                            <div class="col-lg-8 col-md-10 col-xl-6 text-center position-relative">
+                                                <div class="couple-content">
+                                                <div class="position-relative" data-anim="zoom-out">
+                                                <div class="bank-list">
+
+                                              <div class="bank-row">
+                                                <img src="./assets/images/bca-logo.png" alt="BCA" class="bank-logo">
+                                                <div class="bank-info">
+                                                  <div class="bank-name">BCA</div>
+                                                  <!-- clickable account text -->
+                                                  <div class="bank-account clickable-account" data-acct="8990416711">8990416711</div>
+                                                  <div class="bank-holder">Stella Mary</div>
+                                                </div>
+                                              </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Gallery Section -->
+            <section class="gallery-section moveable-section" data-id="3">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class=" col-11 col-md-12">
+                            <div class="gallery-default">
+                                <div id="gallery-default" class="splide mb-1">
+                                    <div class="splide__track overflow-visible">
+                                        <ul class="splide__list" id="zoom-gallery-default">
+                                            <li class="splide__slide position-relative">
+                                                    <img src="./assets/images/photo01.jfif" alt="img-gallery" class="img-gallery" />
+                                            </li>
+                                            <li class="splide__slide position-relative">
+                                                    <img src="./assets/images/photo02.jfif" alt="img-gallery" class="img-gallery" />
+                                            </li>
+                                            <li class="splide__slide position-relative">
+                                                    <img src="./assets/images/photo03.jfif" alt="img-gallery" class="img-gallery" />
+                                            </li>
+                                            <li class="splide__slide position-relative">
+                                                    <img src="./assets/images/photo04.jfif" alt="img-gallery" class="img-gallery" />
+                                            <li class="splide__slide position-relative">
+                                                    <img src="./assets/images/photo05.jfif" alt="img-gallery" class="img-gallery" />
+                                            </li>
+                                            <li class="splide__slide position-relative">
+                                                    <img src="./assets/images/photo06.jfif" alt="img-gallery" class="img-gallery" />
+                                            </li>
+                                            <li class="splide__slide position-relative">
+                                                    <img src="./assets/images/photo07.jfif" alt="img-gallery" class="img-gallery" />
+                                            </li>
+                                            <li class="splide__slide position-relative">
+                                                    <img src="./assets/images/photo08.jfif" alt="img-gallery" class="img-gallery" />
+                                            </li>
+                                            <li class="splide__slide position-relative">
+                                                    <img src="./assets/images/photo09.jfif" alt="img-gallery" class="img-gallery" />
+                                            </li>
+                                            <li class="splide__slide position-relative">
+                                                    <img src="./assets/images/photo10.jfif" alt="img-gallery" class="img-gallery" />
+                                            </li>
+                                            <li class="splide__slide position-relative">
+                                                    <img src="./assets/images/photo11.jfif" alt="img-gallery" class="img-gallery" />
+                                            </li>
+                                            <li class="splide__slide position-relative">
+                                                    <img src="./assets/images/photo12.jfif" alt="img-gallery" class="img-gallery" />
+                                            </li>
+                                            <li class="splide__slide position-relative">
+                                                    <img src="./assets/images/photo13.jfif" alt="img-gallery" class="img-gallery" />
+                                            </li>
+                                            <li class="splide__slide position-relative">
+                                                    <img src="./assets/images/photo14.jfif" alt="img-gallery" class="img-gallery" />
+                                            </li>
+                                            <li class="splide__slide position-relative">
+                                                    <img src="./assets/images/photo16.jfif" alt="img-gallery" class="img-gallery" />
+                                            </li>
+                                            <li class="splide__slide position-relative">
+                                                    <img src="./assets/images/photo17.jfif" alt="img-gallery" class="img-gallery" />
+                                            </li>
+                                            <li class="splide__slide position-relative">
+                                                    <img src="./assets/images/photo18.jfif" alt="img-gallery" class="img-gallery" />
+                                            </li>
+                                            <li class="splide__slide position-relative">
+                                                    <img src="./assets/images/photo19.jfif" alt="img-gallery" class="img-gallery" />
+                                            </li>
+                                            <li class="splide__slide position-relative">
+                                                    <img src="./assets/images/photo20.jfif" alt="img-gallery" class="img-gallery" />
+                                            </li>
+                                            <li class="splide__slide position-relative">
+                                                    <img src="./assets/images/photo21.jfif" alt="img-gallery" class="img-gallery" />
+                                            </li>
+                                            <li class="splide__slide position-relative">
+                                                    <img src="./assets/images/photo22.jfif" alt="img-gallery" class="img-gallery" />
+                                            </li>
+                                            <li class="splide__slide position-relative">
+                                                    <img src="./assets/images/photo23.jfif" alt="img-gallery" class="img-gallery" />
+                                            </li>
+                                            <li class="splide__slide position-relative">
+                                                    <img src="./assets/images/photo24.jfif" alt="img-gallery" class="img-gallery" />
+                                            </li>
+                                            <li class="splide__slide position-relative">
+                                                    <img src="./assets/images/photo25.jfif" alt="img-gallery" class="img-gallery" />
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="position-relative mt-3">
+
+
+            <!-- Tanks Section -->
+               <section class="thank-section" 
+                 style="
+                   position: relative;
+                    width: 100%;
+                  height: 350px;
+                 background: url('./assets/images/background-4.webp') center 20% / cover no-repeat;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    text-align: center;
+                    color: #fff;
+                    ">
+  
+                  <div style="
+                   position: absolute;
+                  inset: 0;
+                  background: rgba(0,0,0,0.35);
+                  "></div>
+
+                 <div style="position: relative; z-index: 1; margin-top: 11rem;">
+                   <h2 data-anim='fade-down' style='font-size: 1.5rem; margin-bottom: 8px;'>Thank You</h2>
+                    <p data-anim='zoom-out' style='font-size: 1rem;'>See you at the celebration!</p>
+                    <p data-anim='zoom-out' style='font-size: 1rem;'>#STEVoundSTELLA</p>
+                 </div>
+                </section>
+
+        </div>
+        <footer class="footer color-secondary">
+            <small>Copyright 2025 Created with ❤️ by NGOnline.id</small>
+        </footer>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade show-maps" id="event1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <button type="button" class=" btn-modal" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="fas fa-xmark"></i>
+                    </button>
+                    <div class="modal-actions">
+                        <h3>Holy Matrimony</h3>
+                    </div>
+                    <div class="col-12 mt-3">
+                        <div class="maps-element">
+                             <div class="map-embed">
+                          <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.737000816921!2d106.82206721083676!3d-6.165963893795528!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5d060a92d27%3A0x60706c3d12c147b!2sKapel%20Biara%20Ursulin%20Santa%20Maria!5e0!3m2!1sen!2sid!4v1759593469268!5m2!1sen!2sid"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                          </iframe>
+                        </div>
+                        </div>
+                        <a href="https://maps.app.goo.gl/5QJyMUMjc4DY4bGg8" 
+                           class="btn btn-custom mt-3" 
+                           target="_blank" 
+                           rel="noopener noreferrer">
+                          View Location
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade show-maps" id="event2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <button type="button" class=" btn-modal" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="fas fa-xmark"></i>
+                    </button>
+                    <div class="modal-actions">
+                        <h3>Wedding Reception</h3>
+                    </div>
+                    <div class="col-12 mt-3">
+                        <div class="maps-element">
+                             <div class="map-embed">
+                          <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.690654356224!2d106.83325287485427!3d-6.172157293815191!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5cc097e35db%3A0x7302b729335a095b!2sHotel%20Borobudur%20Jakarta!5e0!3m2!1sid!2sid!4v1759593662317!5m2!1sid!2sid"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                          </iframe>
+                        </div>
+                        </div>
+                        <a href="https://maps.app.goo.gl/ExXxXmCLjNSh8q6u6" 
+                           class="btn btn-custom mt-3" 
+                           target="_blank" 
+                           rel="noopener noreferrer">
+                          View Location
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade show-maps" id="event3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <button type="button" class=" btn-modal" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="fas fa-xmark"></i>
+                    </button>
+                    <div class="modal-actions">
+                        <h3>Afterparty</h3>
+                    </div>
+                    <div class="col-12 mt-3">
+                        <div class="maps-element">
+                             <div class="map-embed">
+                          <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.69721619795!2d106.8335706748542!3d-6.171280793816051!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5cbf4ede0c9%3A0x414e883564db60b4!2sGrand%20Manhattan%20Club!5e0!3m2!1sid!2sid!4v1759594066067!5m2!1sid!2sid"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                          </iframe>
+                        </div>
+                        </div>
+                        <a href="https://maps.app.goo.gl/jbQakj32wawvvznCA" 
+                           class="btn btn-custom mt-3" 
+                           target="_blank" 
+                           rel="noopener noreferrer">
+                          View Location
+                        </a>
+                    </div>         
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <svg style="position: absolute;pointer-events: none;" width="0" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1">
+        <defs>
+            <clipPath id="wishes-polygon" clipPathUnits="objectBoundingBox">
+                <polygon points="0 0, 1 1, 1 0" />
+            </clipPath>
+        </defs>
+    </svg>
+
+
+    <!-- script libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@3.6.8/dist/js/splide.js" integrity="sha256-6EroBTJT/xoE+Qu93lvN4L6xstdeTcwE0UEgNmPGWjA=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/Flip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" integrity="sha512-q583ppKrCRc7N5O0n2nzUiJ+suUv7Et1JGels4bXOaMFQcamPk9HjdUknZuuFjBNs7tsMuadge5k9RzdmO+1GQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        if (document.querySelector(".gallery-default")) {
+            document.addEventListener("DOMContentLoaded", function () {
+                const gallery = new Splide("#gallery-default", {
+                    pagination: true,
+                    type: "loop",
+                    perPage: 4,
+                    perMove: 1,
+                    breakpoints: {
+                        992: {
+                            perPage: 3
+                        },
+                        576: {
+                            perPage: 1
+                        }
+                    }
+                });
+
+                gallery.mount();
+            });
+        }
+    </script>
+
+    <!-- scripts plugins -->
+    <script src="./assets/js/jquery.magnific-popup.min.js"></script>
+
+    <!-- scripts custom -->
+    <script src="./assets/js/countdown.js"></script>
+    <script src="./assets/js/app.js?v="></script>
+
+
+
+    <script>
+        const wishesScriptURL = "https://script.google.com/macros/s/AKfycbwv-CAQqzHNimMaQcNgtHcJdUyI2elgT5xzCg3Hc18BneZRVj1Qhn_60SnhLZBmRg01IQ/exec";
+
+        document.getElementById("wishesForm").addEventListener("submit", function(e) {
+          e.preventDefault();
+
+          const form = e.target;
+          const name = document.getElementById("wishName").value;
+          const wish = document.getElementById("wishText").value;
+          const sendBtn = form.querySelector("button[type='submit']");
+
+         sendBtn.disabled = true;
+        sendBtn.textContent = "Sending Wishes...";
+
+         const data = { name, wish };
+
+         fetch(wishesScriptURL, {
+         method: "POST",
+         body: JSON.stringify(data)
+         })
+         .then(res => res.json())
+         .then(() => {
+            form.reset();
+           loadWishes();
+        })
+         .finally(() => {
+          // Re-enable the button
+          sendBtn.disabled = false;
+          sendBtn.textContent = "Send";
+        });
+        });
+
+
+        function loadWishes() {
+          fetch(wishesScriptURL)
+            .then(res => res.json())
+            .then(wishes => {
+              const wrapper = document.getElementById("wishesWrapper");
+              wrapper.innerHTML = "";
+              wishes.reverse().forEach(w => {
+                const initial = w.name.trim().charAt(0).toUpperCase();
+                const div = document.createElement("div");
+                div.classList.add("wish");
+                div.innerHTML = `
+                  <div class="wish-badge">
+                    <h6>${initial}</h6>
+                  </div>
+                  <div class="wish-description">
+                    <h6>${w.name}</h6>
+                    <p>${w.wish}</p>
+                  </div>
+                `;
+                wrapper.appendChild(div);
+             });
+        })
+         .catch(err => {
+           console.error("Failed to load wishes:", err);
+         });
+        }
+
+        loadWishes();
+    </script>
+
+
+
+<script>
+document.addEventListener('click', function (e) {
+  const el = e.target.closest('.clickable-account');
+  if (!el) return;
+
+  const acct = el.dataset.acct;
+  if (!acct) return;
+
+  // store original text so we can revert
+  const originalText = el.textContent;
+
+  // Try Clipboard API
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(acct).then(() => {
+      showTemporaryFeedback(el, 'Account Number Copied', originalText);
+    }).catch(() => {
+      fallbackCopy(acct, el, originalText);
+    });
+  } else {
+    fallbackCopy(acct, el, originalText);
+  }
+});
+
+function fallbackCopy(text, el, originalText) {
+  const tmp = document.createElement('input');
+  tmp.style.position = 'absolute';
+  tmp.style.left = '-9999px';
+  tmp.value = text;
+  document.body.appendChild(tmp);
+  tmp.select();
+  try {
+    document.execCommand('copy');
+    showTemporaryFeedback(el, 'Account Number Copied', originalText);
+  } catch (err) {
+    // as last resort, select the text for the user
+    el.textContent = originalText;
+    el.focus();
+    alert('Copy failed — please select the account number and copy manually.');
+  }
+  document.body.removeChild(tmp);
+}
+
+function showTemporaryFeedback(el, msg, revertText) {
+  el.textContent = msg;
+  el.classList.add('copied'); // in case you want to style it
+  // short delay before reverting
+  setTimeout(() => {
+    el.textContent = revertText;
+    el.classList.remove('copied');
+  }, 1400);
+}
+</script>
+
+
+<script>
+        document.getElementById("rsvpForm").addEventListener("submit", function (e) {
+           e.preventDefault();
+
+            const form = e.target;
+          const data = {
+            name: form.name.value,
+            phone: form.phone.value,
+            guestsA: form.guestsA.value,
+            guestsM: form.guestsM.value,
+            guests: form.guests.value,
+            confirmation: form.confirmation.value
+           };
+
+         fetch("https://script.google.com/macros/s/AKfycbyC2gglGhIMRp1Prz-v2qtaSKlOsLv0UepQabc4ijWi9CevPT79fsL-hoFc8YPdKsu1/exec", {
+            method: "POST",
+            body: JSON.stringify(data)
+          })
+          .then(res => res.json())
+          .then(response => {
+           alert("RSVP submitted successfully!");
+           form.reset();
+          })
+          .catch(err => {
+            alert("RSVP submitted successfully.");
+            console.error(err);
+          });
+        });
+    </script>
+
+

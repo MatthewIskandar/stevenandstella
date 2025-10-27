@@ -1,0 +1,13 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jakarta:20251213
+SUMMARY:Steven & Stella Wedding
+DESCRIPTION:Join us in celebrating the wedding of Steven & Stella!
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Reminder: Steven & Stella Wedding starts soon!
+END:VALARM
+END:VEVENT
+END:VCALENDAR
