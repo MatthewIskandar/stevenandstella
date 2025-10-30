@@ -34,6 +34,29 @@
   Your browser does not support the audio element.
 </audio>
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const path = window.location.pathname.replace(/^\/+/, "").toLowerCase();
+  const bgMusic = document.getElementById("bgMusic");
+  const bgSource = bgMusic.querySelector("source");
+
+  // Default background music
+  let musicSrc = "assets/images/wedding-song.mp3";
+
+  // 🎵 Change to party song for 'andwedance' link
+  if (path.includes("andwedance")) {
+    musicSrc = "assets/images/party-song.mp3";
+  }
+
+  // Update source if different
+  if (bgSource.getAttribute("src") !== musicSrc) {
+    bgSource.setAttribute("src", musicSrc);
+    bgMusic.load();
+  }
+});
+</script>
+
+
 <button id="toggleMusic" class="music-btn-1 hidden">🔊</button>
 
 <style>
@@ -901,8 +924,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
                                               let maxGuests = 2; // default
 
-                                              if (guestName.includes("and family")) {
-                                                maxGuests = 2;
+                                              if (guestName.includes("1")) {
+                                                maxGuests = 1;
                                               } else if (guestName.includes("and partner")) {
                                                 maxGuests = 2;
                                               }
@@ -997,7 +1020,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                                 options.unshift(
                                                   { text: "Holy Matrimony & Wedding Reception", value: "Holy Matrimony & Wedding Reception" },
                                                   { text: "Wedding Reception only", value: "Wedding Reception" },
-                                                  { text: "Afterparty only", value: "Afterparty" }
+                                                  { text: "Holy Matrimony only", value: "Holy Matrimony" }
                                                 );
                                               }
                                               else if (path.includes("theevening")) {
@@ -1033,12 +1056,14 @@ document.addEventListener("DOMContentLoaded", () => {
                                           </div>
                                           <button class="btn btn-custom w-100" type="submit">Send</button>
                                         
-                                                <br>
+                                               <div id="reception-note">
+                                                 <br>
                                                 <p style="color: rgba(255, 255, 255, 0.693); text-align: center">--------------------🤍--------------------</p>
                                                 <h4 style="color: black; text-align: center"><em>With respect …</em></h4>
                                                 <p style="color: black; margin-top: 1rem; text-align: justify">In order for all guests to relax and  enjoy the evening, we respectfully request an <strong><em>adults only</em></strong> celebration.</p>
                                                 <p style="color: black; margin-bottom: 0rem; margin-top: 1rem; style=text-align: justify;">And as this will be a seated dinner,</p>
                                                 <p style="color: black;style=text-align: justify;">please RSVP <strong><em>according to the number of guests</em></strong> indicated in your invitation.</p>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>
@@ -1706,6 +1731,55 @@ document.addEventListener("DOMContentLoaded", function () {
     sectionReception.style.display = "block";
     sectionAfterparty.style.display = "block";
   }
+
+  const receptionNote = document.getElementById("reception-note");
+  receptionNote.style.display = "none"; // hide it by default
+
 });
 </script>
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const path = window.location.pathname.replace(/^\/+/, "").toLowerCase();
+
+  // Sections
+  const sectionMatrimony = document.getElementById("section-matrimony");
+  const sectionReception = document.getElementById("section-reception");
+  const sectionAfterparty = document.getElementById("section-afterparty");
+  const receptionNote = document.getElementById("reception-note");
+
+  // Hide all by default
+  sectionMatrimony.style.display = "none";
+  sectionReception.style.display = "none";
+  sectionAfterparty.style.display = "none";
+  receptionNote.style.display = "none";
+
+  // Determine which to show
+  if (path.includes("thevows")) {
+    sectionMatrimony.style.display = "block";
+  } 
+  else if (path.includes("theeveningaffair")) {
+    sectionReception.style.display = "block";
+    sectionAfterparty.style.display = "block";
+    receptionNote.style.display = "block"; // ✅ show note
+  }
+  else if (path.includes("theevening")) {
+    sectionReception.style.display = "block";
+    receptionNote.style.display = "block"; // ✅ show note
+  } 
+  else if (path.includes("andwedance")) {
+    sectionAfterparty.style.display = "block";
+  } 
+  else if (path.includes("fromdaytonight")) {
+    sectionMatrimony.style.display = "block";
+    sectionReception.style.display = "block";
+    receptionNote.style.display = "block"; // ✅ show note
+  } 
+  else if (path.includes("ourday")) {
+    sectionMatrimony.style.display = "block";
+    sectionReception.style.display = "block";
+    sectionAfterparty.style.display = "block";
+    receptionNote.style.display = "block"; // ✅ show note
+  }
+});
+</script>
