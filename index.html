@@ -902,133 +902,155 @@ document.addEventListener("DOMContentLoaded", () => {
                                             </div>
 
                                             <script>
-document.addEventListener("DOMContentLoaded", function () {
-  const confirmationSelect = document.getElementById("confirmation");
-  const guestsMatrimonyWrapper = document.getElementById("guestsMatrimonyWrapper");
-  const guestsReceptionWrapper = document.getElementById("guestsReceptionWrapper");
-  const guestsAfparWrapper = document.getElementById("guestsAfparWrapper");
-  const guestsM = document.getElementById("guestsM");
-  const guests = document.getElementById("guests");
-  const guestsA = document.getElementById("guestsA");
+                                            document.addEventListener("DOMContentLoaded", function () {
+                                              const confirmationSelect = document.getElementById("confirmation");
+                                              const guestsMatrimonyWrapper = document.getElementById("guestsMatrimonyWrapper");
+                                              const guestsReceptionWrapper = document.getElementById("guestsReceptionWrapper");
+                                              const guestsAfparWrapper = document.getElementById("guestsAfparWrapper");
 
-  // ======================================================
-  // 🔹 URL + Guest detection
-  // ======================================================
-  const path = window.location.pathname.replace(/^\/+/, "").toLowerCase();
-  const guestName = path.split("-").slice(1).join("-").replace(/-/g, " ").trim(); // extract name part after event key
+                                              const guestsM = document.getElementById("guestsM");
+                                              const guests = document.getElementById("guests");
+                                              const guestsA = document.getElementById("guestsA");
 
-  // Log if no path
-  if (!path) {
-    console.log("No guest name in URL, defaulting to generic mode.");
-  }
+                                              // Detect type from URL
+                                              let path = window.location.pathname.replace(/^\/+/, "");
+                                              let guestName = path ? path.replace(/-/g, " ").toLowerCase() : "guest";
 
-  // ======================================================
-  // 🔹 Determine max guest count from guest name
-  // ======================================================
-  let maxGuests = 2; // default max 2
-  if (guestName.includes("1")) {
-    maxGuests = 1;
-  } else if (guestName.includes("and partner")) {
-    maxGuests = 2;
-  }
+                                              
+                                              if (!path) {
+                                                  console.log("No guest name in URL, defaulting to generic mode.");
+                                                }
 
-  console.log("Guest name:", guestName || "Generic");
-  console.log("Max guests allowed:", maxGuests);
 
-  // ======================================================
-  // 🔹 Rebuild dropdown options dynamically (based on URL)
-  // ======================================================
-  const baseOptions = [{ text: "Unable to attend", value: "Unable to attend" }];
+                                              let maxGuests = 2; // default
 
-  if (path.includes("thevows")) {
-    baseOptions.unshift({ text: "Holy Matrimony only", value: "Holy Matrimony" });
-  } 
-  else if (path.includes("theeveningaffair")) {
-    baseOptions.unshift(
-      { text: "Wedding Reception only", value: "Wedding Reception" },
-      { text: "Afterparty only", value: "Afterparty" }
-    );
-  }
-  else if (path.includes("theevening")) {
-    baseOptions.unshift({ text: "Wedding Reception only", value: "Wedding Reception" });
-  } 
-  else if (path.includes("andwedance")) {
-    baseOptions.unshift({ text: "Afterparty only", value: "Afterparty" });
-  } 
-  else if (path.includes("fromdaytonight")) {
-    baseOptions.unshift(
-      { text: "Holy Matrimony & Wedding Reception", value: "Holy Matrimony & Wedding Reception" }
-    );
-  } 
-  else if (path.includes("ourday")) {
-    baseOptions.unshift(
-      { text: "Attend all", value: "All" },
-      { text: "Holy Matrimony only", value: "Holy Matrimony" },
-      { text: "Wedding Reception only", value: "Wedding Reception" },
-      { text: "Afterparty only", value: "Afterparty" }
-    );
-  }
+                                              if (guestName.includes("1")) {
+                                                maxGuests = 1;
+                                              } else if (guestName.includes("and partner")) {
+                                                maxGuests = 2;
+                                              }
 
-  // Build dropdown
-  confirmationSelect.innerHTML = '<option disabled selected value="">Select event to attend</option>';
-  baseOptions.forEach(opt => {
-    const o = document.createElement("option");
-    o.value = opt.value;
-    o.textContent = opt.text;
-    confirmationSelect.appendChild(o);
-  });
+                                              // Helper to build dropdown options dynamically
+                                              function populateOptions(select, max) {
+                                                select.innerHTML = '<option disabled selected value="">Select guests</option>';
+                                                for (let i = 1; i <= max; i++) {
+                                                  const opt = document.createElement("option");
+                                                  opt.value = i;
+                                                  opt.textContent = i;
+                                                  select.appendChild(opt);
+                                                }
+                                              }
 
-  // ======================================================
-  // 🔹 Dropdown change logic → Show related guest fields
-  // ======================================================
-  confirmationSelect.addEventListener("change", function () {
-    const value = this.value;
+                                              // Initially populate all guest dropdowns
+                                              populateOptions(guestsM, maxGuests);
+                                              populateOptions(guests, maxGuests);
+                                              populateOptions(guestsA, maxGuests);
 
-    // Hide all first
-    guestsMatrimonyWrapper.style.display = "none";
-    guestsReceptionWrapper.style.display = "none";
-    guestsAfparWrapper.style.display = "none";
-    guestsM.required = false;
-    guests.required = false;
-    guestsA.required = false;
+                                              // Toggle visibility based on confirmation
+                                              confirmationSelect.addEventListener("change", function () {
+                                                const value = this.value;
 
-    if (value === "All") {
-      guestsMatrimonyWrapper.style.display = "block";
-      guestsReceptionWrapper.style.display = "block";
-      guestsAfparWrapper.style.display = "block";
-      guestsM.required = true;
-      guests.required = true;
-      guestsA.required = true;
-    } 
-    else if (value === "Wedding Reception & Afpar") {
-      guestsReceptionWrapper.style.display = "block";
-      guestsAfparWrapper.style.display = "block";
-      guests.required = true;
-      guestsA.required = true;
-    } 
-    else if (value === "Holy Matrimony & Wedding Reception") {
-      guestsMatrimonyWrapper.style.display = "block";
-      guestsReceptionWrapper.style.display = "block";
-      guestsM.required = true;
-      guests.required = true;
-    } 
-    else if (value === "Holy Matrimony") {
-      guestsMatrimonyWrapper.style.display = "block";
-      guestsM.required = true;
-    } 
-    else if (value === "Wedding Reception") {
-      guestsReceptionWrapper.style.display = "block";
-      guests.required = true;
-    } 
-    else if (value === "Afterparty") {
-      guestsAfparWrapper.style.display = "block";
-      guestsA.required = true;
-    }
-    // "Unable to attend" → nothing shows
-  });
-});
-</script>
+                                                // Hide everything first
+                                                guestsMatrimonyWrapper.style.display = "none";
+                                                guestsReceptionWrapper.style.display = "none";
+                                                guestsAfparWrapper.style.display = "none";
 
+                                                guestsM.required = false;
+                                                guests.required = false;
+                                                guestsA.required = false;
+
+                                                if (value === "All") {
+                                                  guestsMatrimonyWrapper.style.display = "block";
+                                                  guestsReceptionWrapper.style.display = "block";
+                                                  guestsAfparWrapper.style.display = "block";
+                                                  guestsM.required = true;
+                                                  guests.required = true;
+                                                  guestsA.required = true;
+                                                } else if (value === "Wedding Reception & Afpar") {
+                                                  guestsReceptionWrapper.style.display = "block";
+                                                  guestsAfparWrapper.style.display = "block";
+                                                  guests.required = true;
+                                                  guestsA.required = true;
+                                                } else if (value === "Holy Matrimony & Afpar") {
+                                                  guestsMatrimonyWrapper.style.display = "block";
+                                                  guestsAfparWrapper.style.display = "block";
+                                                  guestsM.required = true;
+                                                  guests.required = true;
+                                                } else if (value === "Holy Matrimony & Wedding Reception") {
+                                                  guestsMatrimonyWrapper.style.display = "block";
+                                                  guestsReceptionWrapper.style.display = "block";
+                                                  guestsM.required = true;
+                                                  guestsA.required = true;
+                                                } else if (value === "Holy Matrimony") {
+                                                  guestsMatrimonyWrapper.style.display = "block";
+                                                  guestsM.required = true;
+                                                } else if (value === "Wedding Reception") {
+                                                  guestsReceptionWrapper.style.display = "block";
+                                                  guests.required = true;
+                                                } else if (value === "Afterparty") {
+                                                  guestsAfparWrapper.style.display = "block";
+                                                  guestsA.required = true;
+                                               } 
+                                                // "Unable to attend" → nothing shows
+                                              });
+                                            });
+                                            </script>
+
+                                            <script>
+                                            document.addEventListener("DOMContentLoaded", function () {
+                                              const confirmationSelect = document.getElementById("confirmation");
+                                              const path = window.location.pathname.replace(/^\/+/, "").toLowerCase();
+
+                                              const options = [
+                                                { text: "Unable to attend", value: "Unable to attend" }
+                                              ];
+
+                                              // ✅ Put theeveningaffair BEFORE theevening
+                                              if (path.includes("thevows")) {
+                                                options.unshift({ text: "Holy Matrimony only", value: "Holy Matrimony" });
+                                              } 
+                                              else if (path.includes("theeveningaffair")) {
+                                                options.unshift(
+                                                  { text: "Wedding Reception & Afterparty", value: "Wedding Reception & Afpar" },
+                                                  { text: "Wedding Reception only", value: "Wedding Reception" },
+                                                  { text: "Afterparty only", value: "Afterparty" }
+                                                );
+                                              }
+                                              else if (path.includes("fromdaytonight")) {
+                                                options.unshift(
+                                                  { text: "Holy Matrimony & Wedding Reception", value: "Holy Matrimony & Wedding Reception" },
+                                                  { text: "Wedding Reception only", value: "Wedding Reception" },
+                                                  { text: "Holy Matrimony only", value: "Holy Matrimony" }
+                                                );
+                                              }
+                                              else if (path.includes("theevening")) {
+                                                options.unshift({ text: "Wedding Reception only", value: "Wedding Reception" });
+                                              } 
+                                              else if (path.includes("andwedance")) {
+                                                options.unshift({ text: "Afterparty only", value: "Afterparty" });
+                                              } 
+                                              else if (path.includes("ourday")) {
+                                                options.unshift(
+                                                  { text: "Attend all", value: "All" },
+                                                  { text: "Holy Matrimony only", value: "Holy Matrimony" },
+                                                  { text: "Wedding Reception only", value: "Wedding Reception" },
+                                                  { text: "Afterparty only", value: "Afterparty" },
+                                                  { text: "Holy Matrimony & Wedding Reception", value: "Holy Matrimony & Wedding Reception" },
+                                                  { text: "Holy Matrimony & Afterparty", value: "Holy Matrimony & Afpar" },
+                                                  { text: "Wedding Reception & Afterparty", value: "Wedding Reception & Afpar" }
+                                                );
+                                              }
+
+                                              // Build the dropdown dynamically
+                                              confirmationSelect.innerHTML = '<option disabled selected value="">Select event to attend</option>';
+                                              options.forEach(opt => {
+                                                const optionEl = document.createElement("option");
+                                                optionEl.value = opt.value;
+                                                optionEl.textContent = opt.text;
+                                                confirmationSelect.appendChild(optionEl);
+                                              });
+                                            });
+                                            </script>
 
 
                                           </div>
